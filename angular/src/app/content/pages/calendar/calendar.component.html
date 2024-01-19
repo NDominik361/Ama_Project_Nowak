@@ -1,0 +1,15 @@
+<div style="padding:5px;">
+    <full-calendar class="calendar" [options]="calendarOptions">
+        <ng-template #eventContent let-arg>
+            <div (click)="openDetail(arg.event.id)"  style="
+            overflow: hidden;
+            text-overflow: ellipsis !important;
+            white-space: nowrap !important;
+            max-width: 100%;">
+            <b>{{ arg.event.title }}</b>
+            <b> Start: {{ transformTime(arg.event.start) }} </b>
+            <b> End: {{ transformTime(arg.event.end) }}</b>
+        </div>
+          </ng-template>
+    </full-calendar>
+</div>

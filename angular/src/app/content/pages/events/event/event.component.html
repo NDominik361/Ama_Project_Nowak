@@ -1,0 +1,91 @@
+<div class="center-container">
+  <button *ngIf="isUpdate" class="arrow-button left" (click)="backward()"><span>&lt;</span></button>
+  <div class="form-wrap"
+       style="margin:2em; border-radius: 25px; display: flex; justify-content: center; align-items: center; width: 65vw;">
+    <div class="form-page">
+      <form [formGroup]="EventForm">
+        <div>
+          <h1 style="padding-bottom:0em;">{{isUpdate ? 'Update Event' : 'Create Event'}}</h1>
+          <div class="full-screen">
+            <div class="half-screen" style="width:25vw;  padding: 5px; display:flex; justify-content: space-between;">
+              <div class="form-group">
+                <div style="width:22vw; height:45vh;">
+                  <img style="padding-top:2em;max-width: 22vw; max-height: 45vh;"
+                       [src]="EventForm.get('foto')?.value ? EventForm.get('foto')?.value : 'noimage.jpg'"/>
+                </div>
+                <label for="foto">Foto</label>
+                <input formControlName="foto" type="text" id="changes" name="changes"
+                       placeholder="Bitte fügen Sie einen Link hinzu">
+              </div>
+            </div>
+            <div class="half-screen">
+              <div class="form-group required">
+                <label for="title">Title</label>
+                <input formControlName="title" type="text" id="title" name="title" required>
+              </div>
+              <div class="full-screen" style="justify-content: space-between; align-items: center;">
+                <div class="form-group " style="padding-right: 5px;">
+                  <label for="start">Start Date</label>
+                  <input class="calendar" formControlName="start" type="datetime-local" id="start" name="start">
+
+                </div>
+                <div class="form-group ">
+                  <label for="state">State</label>
+                  <p-dropdown placeholder="Select a State" name="state" [options]="states" formControlName="state">
+                  </p-dropdown>
+                </div>
+                <!--span style="font-size: 26px;">&gt;</span-->
+
+              </div>
+              <div class="full-screen" style="justify-content: space-between; align-items: center;">
+                <div class="form-group " style="padding-left: 0px;">
+                  <label for="end">End Date</label>
+                  <input class="calendar" formControlName="end" type="datetime-local" id="end" name="end">
+                </div>
+
+                <div class="form-group ">
+                  <label for="type">Type</label>
+                  <p-dropdown placeholder="Select a Type" name="type" [options]="types" formControlName="type">
+                  </p-dropdown>
+                </div>
+              </div>
+
+              <div class="form-group ">
+                <label for="location">Location</label>
+                <input formControlName="location" placeholder="e.g. Wien" type="text" id="location" name="location">
+              </div>
+
+              <div class="form-group ">
+                <label for="address">Address</label>
+                <input formControlName="address" placeholder="e.g. Pachergasse ..." type="text" id="address"
+                       name="address">
+              </div>
+              <div class="form-group">
+                <label for="description">Description</label>
+                <textarea formControlName="description" type="text" id="description" name="description"></textarea>
+              </div>
+              <!--div class="form-group">
+                <label for="changes">Changes</label>
+                <input formControlName="changes" type="text" id="changes" name="changes">
+              </div-->
+
+              <button *ngIf="!isUpdate" [disabled]="EventForm.invalid" (click)="createEvent()">create</button>
+              <button *ngIf="isUpdate" [disabled]="EventForm.invalid" (click)="updateEvent()">update</button>
+              <button *ngIf="isUpdate" [disabled]="EventForm.invalid" (click)="showDialog()">Check Invitations</button>
+            </div>
+
+          </div>
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+  <button *ngIf="isUpdate" class="arrow-button right" (click)="forward()"><span>&gt;</span></button>
+</div>
+
+
+<p-dialog header="Select Contacts" [(visible)]="visible" [style]="{width: '90vw', height: '90vh'}">
+  <events-contacts (onContactsChange)="onContactsChange($event)" [invitedContacts]="invitedContacts"
+                   [allContacts]="allContacts"></events-contacts>
+</p-dialog>

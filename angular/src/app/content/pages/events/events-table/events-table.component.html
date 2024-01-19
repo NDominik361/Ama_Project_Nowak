@@ -1,0 +1,70 @@
+<div>
+  <p-table [value]="events" [paginator]="true" [rows]="10" [filterDelay]="500"
+           [globalFilterFields]="['title', 'location', 'state', 'type', 'description']">
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="title" class="ellipsis">
+          Title
+          <p-sortIcon field="title"></p-sortIcon>
+        </th>
+        <th pSortableColumn="start" class="ellipsis">
+          Start
+          <p-sortIcon field="start"></p-sortIcon>
+        </th>
+        <th pSortableColumn="end" class="ellipsis">
+          End
+          <p-sortIcon field="end"></p-sortIcon>
+        </th>
+        <th pSortableColumn="location" class="ellipsis">
+          Location
+          <p-sortIcon field="location"></p-sortIcon>
+        </th>
+        <th pSortableColumn="state" class="ellipsis">
+          State
+          <p-sortIcon field="state"></p-sortIcon>
+        </th>
+        <th pSortableColumn="type" class="ellipsis">
+          Type
+          <p-sortIcon field="type"></p-sortIcon>
+        </th>
+        <th pSortableColumn="description" class="ellipsis">
+          Description
+          <p-sortIcon field="description"></p-sortIcon>
+        </th>
+        <!--th >
+          Changes
+        </th-->
+        <th>
+          <button class="createButton" (click)="createEvent()"><span>+</span></button>
+        </th>
+      </tr>
+      <tr>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-event>
+      <tr (click)="openRowDetail($event, event)">
+        <td class="ellipsis">{{ event.title }}</td>
+        <td class="ellipsis">{{ event.start}}</td>
+        <td class="ellipsis">{{ event.end}}</td>
+        <td class="ellipsis">{{ event.location }}</td>
+        <td class="ellipsis">{{ event.state }}</td>
+        <td class="ellipsis">{{ event.type }}</td>
+        <td class="ellipsis">{{ event.description }}</td>
+        <!--td>
+          <ul>
+            <li *ngFor="let change of event.changes">{{ change }}</li>
+          </ul>
+        </td-->
+        <td>
+          <button class="deleteButton" (click)="deleteEvent(event)"><span>-</span></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<p-confirmDialog
+  [closable]=false
+  [closeOnEscape]=false
+  key="eventConfirmationDialog"
+></p-confirmDialog>

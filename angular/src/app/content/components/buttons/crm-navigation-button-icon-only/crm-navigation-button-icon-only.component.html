@@ -1,0 +1,9 @@
+<button pButton type="button"
+        [pTooltip]="pTooltip"
+        [iconPos]="iconPos"
+        [icon]="iconFa ? '' : icon"
+        [class]="'crm-button-navigation p-button-icon-only ml-1 mr-1 ' + styleClass"
+        [tooltipPosition]="tooltipPos"
+        [disabled]="disabled"
+><fa-icon *ngIf = "iconFa" [icon]="iconFa"></fa-icon></button>
+

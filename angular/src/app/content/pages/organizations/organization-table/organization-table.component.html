@@ -1,0 +1,47 @@
+
+  <p-table [value]="organizations" [paginator]="true" [rows]="10" [filterDelay]="500" [globalFilterFields]="['name', 'country', 'region', 'address', 'phone']">
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="name" class="ellipsis">
+          Name
+          <p-sortIcon field="name"></p-sortIcon>
+        </th>
+        <th pSortableColumn="country" class="ellipsis">
+          Country
+          <p-sortIcon field="country"></p-sortIcon>
+        </th>
+        <th pSortableColumn="region" class="ellipsis">
+          Region
+          <p-sortIcon field="region"></p-sortIcon>
+        </th>
+        <th pSortableColumn="address" class="ellipsis">
+          Address
+          <p-sortIcon field="address"></p-sortIcon>
+        </th>
+        <th pSortableColumn="uid" class="ellipsis">
+          uid
+          <p-sortIcon field="uid"></p-sortIcon>
+        </th>
+        <th>
+          <button class="createButton" (click)="createOrg()"><span>+</span></button>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-organization>
+      <tr (click)="openRowDetail($event, organization)">
+        <td class="ellipsis">{{ organization.name }}</td>
+        <td class="ellipsis">{{ organization.country }}</td>
+        <td class="ellipsis">{{ organization.region }}</td>
+        <td class="ellipsis">{{ organization.address }}</td>
+        <td class="ellipsis">{{ organization.uid }}</td>
+        <td>
+          <button class="deleteButton" (click)="deleteOrganization(organization)"><span>-</span></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <p-confirmDialog
+  [closable]=false
+  [closeOnEscape]=false
+  key="orgConfirmationDialog"
+></p-confirmDialog>

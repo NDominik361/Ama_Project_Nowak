@@ -1,0 +1,10 @@
+<button pButton type="button"
+        [iconPos]="iconPos"
+        [icon]="iconFa ? '' : icon"
+        [class]="'p-button-icon-only crm-button-detail ml-1 mr-1 {{class}}'"
+        [pTooltip]="tooltipText"
+        [tooltipPosition]="tooltipPos"
+        [disabled]="disabled"
+
+><fa-icon *ngIf = "iconFa" [icon]="iconFa"></fa-icon></button>
+

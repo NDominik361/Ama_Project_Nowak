@@ -1,0 +1,64 @@
+<div class="center-container">
+  <button *ngIf="isUpdate" class="arrow-button left" (click)="backward()"><span>&lt;</span></button>
+  <div class="form-wrap"
+       style="margin:2em; border-radius: 25px; display: flex; justify-content: center; align-items: center; width: 65vw;">s
+    <div class="form-page">
+      <form [formGroup]="ContactForm">
+        <h1 style="padding-bottom:0em;">{{isUpdate ? 'Update Contact' : 'Create Contact'}}</h1>
+        <div class="full-screen" style="width: 70vw; display: flex; justify-content: flex-start;">
+          <div class="half-screen" style=" padding: 5px; ">
+            <div class="form-group required">
+              <label for="vorname">First Name</label>
+              <input formControlName="vorname" placeholder="Please insert a first name" type="text" id="vorname"
+                     name="vorname" required>
+            </div>
+            <div class="form-group required">
+              <label for="nachname">Last Name</label>
+              <input required
+                     formControlName="nachname" type="text" placeholder="Please insert a last name" id="nachname"
+                     name="nachname" required>
+            </div>
+            <div class="form-group">
+              <label for="telefonNr">Phone Number</label>
+              <input formControlName="telefonNr" placeholder="e.g. +43 11111111" type="text" id="telefonNr"
+                     name="telefonNr">
+            </div>
+            <div class="form-group">
+              <label for="adresse">Address</label>
+              <input formControlName="adresse" placeholder="e.g. Pachergasse..." type="text" id="adresse"
+                     name="adresse">
+            </div>
+          </div>
+
+          <div class="half-screen" style="padding: 5px; width:20vw;">
+            <div class="form-group">
+              <label for="vip">VIP</label>
+              <input class="vip" formControlName="vip" type="checkbox" id="vip" name="vip">
+            </div>
+            <div class="form-group">
+              <label for="organization">Organization</label>
+              <p-dropdown [class]="'dropdown'" optionValue="id" formControlName="organization" [options]="organizations"
+                          id="organization" placeholder="Select a Organization" name="organization" optionLabel="name">
+
+              </p-dropdown>
+            </div>
+
+            <div class="form-group">
+              <label for="akadTitel">Academic Title</label>
+              <input formControlName="akadTitel" placeholder="e.g. Dr." type="text" id="akadTitel" name="akadTitel">
+            </div>
+            <div class="form-group">
+              <label for="anrede">Salutation</label>
+              <input formControlName="anrede" placeholder="e.g. Frau/Herr/Divers..." type="text" id="anrede"
+                     name="anrede">
+            </div>
+
+            <button *ngIf="!isUpdate" [disabled]="ContactForm.invalid" (click)="createContact()">create</button>
+            <button *ngIf="isUpdate" [disabled]="ContactForm.invalid" (click)="updateContact()">update</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <button *ngIf="isUpdate" class="arrow-button right" (click)="forward()"><span>&gt;</span></button>
+</div>

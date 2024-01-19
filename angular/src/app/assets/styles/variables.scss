@@ -1,0 +1,13 @@
+
+
+// Defines the primary color!
+//region customized raiffeisen styles
+$primaryColor: rgb(212, 126, 126);
+$primaryTextColor: #373737;
+$secondaryTextColor: lighten($primaryTextColor, 20%);
+//endregion
+
+$primeng-header: #f8f9fa;
+$primeng-border: #e9ecef;
+$primeng-black-font-color: $primaryTextColor;
+

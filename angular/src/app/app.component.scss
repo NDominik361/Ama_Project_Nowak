@@ -1,0 +1,52 @@
+.app-container {
+  
+    display: flex;
+    
+    height: 100vh;
+  }
+
+.sidenav {
+    width: 20%; /* Adjust the width of the sidenav as per your design */
+    height:100;
+    background-color: #eee; /* Example background color */
+    overflow: auto; /* Scrollable sidenav if content is long */
+    position: sticky;
+    overflow: hidden;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .element {
+    padding-top: 5rem;
+    padding-bottom: 4rem;
+    display: flex;
+    justify-content: center;
+    width:100%;
+  }
+.main {
+  width:80%;
+  }
+
+br {
+  content: "";
+  display: block;
+  margin-top: 1em; /* Adjust the space above the line break as needed */
+}
+.menu-item{
+  display:flex;
+  justify-content: center;
+  padding: 0.9rem;
+  border: 1px solid lightgray;
+  border-radius: 25px;
+  margin: 0.5rem;
+  text-decoration: none;
+  color: black;
+  font-size: 22px;
+  background-color: white;
+  min-width:15rem;
+}
+.list{
+  display: flex;
+  justify-content: center;
+}

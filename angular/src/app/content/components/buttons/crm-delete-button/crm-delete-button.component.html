@@ -1,0 +1,12 @@
+<button pButton
+        type="button"
+        [iconPos]="iconPos"
+        [icon]="iconFa ? '' : icon"
+        [class]="'crm-button-delete p-button-icon-only ml-1 mr-1 {{styleClass}}'"
+        [pTooltip]="tooltipText"
+        [tooltipPosition]="tooltipPos"
+        [disabled]="disabled"
+>
+  <fa-icon *ngIf="iconFa" [icon]="iconFa"></fa-icon>
+</button>
+

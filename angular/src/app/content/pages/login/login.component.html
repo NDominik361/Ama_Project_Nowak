@@ -1,0 +1,14 @@
+<!--suppress AngularUndefinedBinding -->
+<div class="crmtool-login-container p-shadow-5">
+  <div class="crmtool-login-container-form" [formGroup]="loginForm" (keydown.enter)="onLogIn()">
+    <!-- Username -->
+    <label for="username" class="OpenSansBold_14px_18px">Benutzername</label>
+    <input id="username" class="OpenSansBold_14px_18px" formControlName="username" pInputText type="text">
+    <!-- Password -->
+    <label for="password" class="OpenSansBold_14px_18px">Passwort</label>
+    <input id="password" class="OpenSansBold_14px_18px" formControlName="password" pInputText type="password">
+  </div>
+  <button
+    (keydown.enter)="onLogIn()"
+    (click)="onLogIn()"></button>
+</div>

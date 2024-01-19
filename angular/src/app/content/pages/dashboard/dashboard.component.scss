@@ -1,0 +1,65 @@
+.event-card {
+    padding: 0.5em;
+    text-align: center;
+    height:25vh;
+  }
+  .event-details {
+    position: absolute;
+    bottom:1;
+    
+    text-align: center;
+    margin-bottom: 10px;
+    width:100%;
+  }
+  .text-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    bottom:0;
+    text-align: center;
+    padding: 1.5em;
+    margin-bottom: 10px;
+  }
+
+  .box{
+    padding: 5%;
+  }
+  .item{
+    border: 1px solid lightgray;
+    padding: 2px;
+    margin: 2px;
+    border-radius: 5%;
+    height:80vh;
+  }
+
+  .weather-text{
+    font-size: 1.5em;
+    margin: 5px;
+  }
+  .header-text{
+    font-size: 2em;
+    margin: 5px;
+  }
+  .event-text{
+    font-size: 1.5em;
+    margin: 5px;
+  }
+  .image{
+    margin:1em;
+    max-height:12em;
+    max-width: 100%; 
+    display: flex;
+    justify-content: center;
+    border-radius: 2%;
+  }
+  .event-text{
+
+  }
+
+  
+  .ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    max-width: 15rem;
+  }

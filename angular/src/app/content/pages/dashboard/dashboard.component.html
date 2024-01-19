@@ -1,0 +1,38 @@
+<div class="box">
+  <div class="p-grid">
+    <div class="p-col-12">
+      <p-card header="Upcoming Events" styleClass="ui-card-shadow">
+        <p-carousel [value]="events" [numVisible]="3" [numScroll]="3" [circular]="true">
+          <ng-template pTemplate="item" let-event>
+            <div (click)="openDetail(event)">
+              <div class="item">
+                <div class="event-card">
+                  <div style="display:flex; width:100%; justify-content: center;">
+                    <img [src]="event.foto ? event.foto : 'noimage.jpg'" [alt]="event.title" class="image"
+                         [style]="event.foto ? '' : 'margin:0em;'"/>
+                  </div>
+                </div>
+                <div>
+                  <div class="text-card">
+                    <p class="header-text ellipsis">{{ event.title }}</p>
+                    <p class="event-text">am {{ transformDateTimeToDate(event.start) }}</p>
+                    <p class="event-text">von {{ transformTime(event.start) }} <br> bis {{ transformTime(event.end) }}
+                    </p>
+                    <br>
+                    <p class="weather-text">{{ weatherForecasts[events.indexOf(event)]?.city_name }}</p>
+
+                    <!--i class="" style="font-size: 3em">{{ weatherForecasts[events.indexOf(event)]?.data[1]?.weather.icon }}</i-->
+                    <p class="weather-text">{{ weatherForecasts[events.indexOf(event)]?.data[0]?.min_temp }} °C | {{
+                      weatherForecasts[events.indexOf(event)]?.data[0]?.max_temp }} °C </p>
+                    <p class="weather-text"> {{ weatherForecasts[events.indexOf(event)]?.data[0]?.weather.description
+                      }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </p-carousel>
+      </p-card>
+    </div>
+  </div>
+</div>

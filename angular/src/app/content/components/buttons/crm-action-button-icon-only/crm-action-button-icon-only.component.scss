@@ -1,0 +1,8 @@
+@import "src/assets/styles/variables";
+@import "src/assets/styles/buttons";
+
+.crm-button-action-icon-only{
+  @include colored-button($primaryColor,$primaryTextColor,$primaryColor);
+  //border
+  }
+

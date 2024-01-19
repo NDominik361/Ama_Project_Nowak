@@ -1,0 +1,217 @@
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+
+body {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    font-family: "Open Sans Regular", Helvetica, Arial, sans-serif;
+    font-size:18px;
+    
+  }
+
+  .deleteButton{
+    background-color: rgb(212, 121, 121);
+    height:2rem;
+    width:2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .deleteButton span {
+    font-size: 32px; /* Adjust the font size for the plus sign */
+  }
+  .createButton{
+    background-color: lightgreen;
+    height:2rem;
+    width:2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .createButton span {
+    font-size: 32px; /* Adjust the font size for the plus sign */
+  }
+
+  .form-page {
+    width: 100%;
+    font-size: 18px;
+    form {
+      margin: 0 auto;
+    }
+    .form-group {
+      margin-bottom: 0.4rem;
+      label {
+        display: block;
+        margin-bottom: 0.0rem;
+      }
+      input[type="text"],
+      input[type="datetime"],
+      textarea {
+        width: 100%;
+        padding: 0.7rem;
+        border: 1px solid #dee2e6;
+        border-radius: 0.25rem;
+        &:focus {
+          outline: none;
+          border-color: #80bdff;
+          box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+      }
+      input[type="checkbox"] {
+        margin-top: 0.5rem;
+        box-sizing: border-box;
+        border: 1px solid #dee2e6 !important;
+      }
+      textarea {
+        resize: vertical;
+      }
+    }
+    button {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 0.25rem;
+      font-size: 18px;
+      background-color: #a1c6eb;
+      cursor: pointer;
+      &:not(:last-child) {
+        margin-right: 0.5rem;
+      }
+      &:hover {
+        background-color: #dcdcdc;
+      }
+    }
+  }
+  .form-wrap{
+    width: 100%;
+    padding:50px;
+    border: 1px solid #dee2e6;
+  }
+
+  // Hover effect for form groups
+  .form-group:hover {
+    background-color: #eaeaea;
+  }
+
+  // Style for the create and update buttons
+  button {
+    background-color: #f8f9fa;
+    &:hover {
+      background-color: #dcdcdc;
+    }
+  }
+
+  // Styles for the events table to look beautiful and full width
+p-table {
+    width: 100%; // full width
+    border-collapse: collapse;
+    margin: 0 auto;
+    th, td {
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid #dee2e6;
+    }
+    th {
+      background-color: #f8f9fa;
+      border-top: 1px solid #dee2e6;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    tr:hover {
+      background-color: #eaeaea;
+    }
+    .p-sortIcon {
+      margin-left: 0.5rem;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      margin: 0.25rem;
+      border: none;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      &:hover {
+        background-color: #dcdcdc;
+      }
+    }
+  }
+  
+  // Paginator style if needed
+  .p-paginator {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    .p-paginator-first,
+    .p-paginator-prev,
+    .p-paginator-next,
+    .p-paginator-last,
+    .p-paginator-page {
+      margin: 0 0.25rem;
+      border: none;
+      border-radius: 0.25rem;
+      &:hover {
+        background-color: #dcdcdc;
+      }
+    }
+  }
+  .arrow-button {
+    width: 80px;
+    height: 80px;
+    background-color: #007bff; /* Blue color, change as needed */
+    color: #fff; /* White text color, change as needed */
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .arrow-button:hover {
+    background-color: #0056b3; /* Darker blue color on hover, change as needed */
+  }
+  
+  .left {
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+  }
+  
+  .right {
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+  }
+  .left span,
+.right span {
+  font-size: 44px; /* Adjust the font size as needed */
+}
+
+
+.center-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.half-screen{
+  width: 50%;
+  height: 100%;
+  
+}
+.full-screen{
+  width: 100%;
+  height:100%;
+  display: flex;
+  justify-content: center;
+}
+
+.required {
+  label::after {
+    content: " *"
+  }
+}
+.p-autocomplete {
+  height:2.5em;
+  width: 100%;
+  padding: 0px;
+}
+.input{
+  height:2em;
+}

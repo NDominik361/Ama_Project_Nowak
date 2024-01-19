@@ -1,0 +1,6 @@
+@import "src/assets/styles/variables";
+@import "src/assets/styles/buttons";
+
+.crm-button-create{
+  @include colored-button($primaryColor,$color-crmtool-black,$primaryColor);
+}

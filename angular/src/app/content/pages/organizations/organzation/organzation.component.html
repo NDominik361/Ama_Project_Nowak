@@ -1,0 +1,48 @@
+<div class="center-container">
+  <button *ngIf="isUpdate" class="arrow-button left" (click)="backward()"> <span>&lt;</span></button>
+<div class="form-wrap" style="margin:2em; border-radius: 25px; display: flex; justify-content: center; align-items: center; width: 65vw;">
+  <div>
+    <h1 style="padding-bottom:0em;">{{isUpdate ? 'Update Organization' : 'Create Organization'}}</h1>
+  <div class="form-page" style="display: flex; ">
+  <form [formGroup]="organizationForm">
+    <div style="width: 55vw;">
+    <div class="form-group required">
+      <label for="name">Name</label>
+      <input formControlName="name" placeholder="Please insert a name" type="text" id="name" name="name" required>
+    </div>
+    <div class="form-group required">
+      <label for="address">Address</label>
+      <input formControlName="address" placeholder="e.g. Pachergasse ..." type="text" id="address" name="address" required>
+    </div>
+    <div style="display: flex; justify-content: space-between;">
+      <div class="form-group half-screen">
+        <label for="country">Country</label>
+        <p-autoComplete class="autocomplete"id="country"
+        placeholder="Switzerland"
+        formControlName="country"
+         [forceSelection]="true"
+        [suggestions]="countriesSuggestions"
+        (completeMethod)="filterCountry($event)" [dropdown]="true">
+  </p-autoComplete>   
+    </div>
+      <div class="form-group half-screen">
+        <label for="region">Region</label>
+        <input formControlName="region" placeholder="e.g. Wien" type="text" id="region" name="region">
+      </div>
+
+
+    </div>
+    <div class="form-group">
+      <label for="uid">Tax ID</label>
+      <input formControlName="uid" placeholder="e.g. 123456789" type="text" id="uid" name="uid">
+    </div>
+    <div style="display: flex; justify-content: center; padding-left: 4.8em;">
+      <button *ngIf="!isUpdate" [disabled]="organizationForm.invalid" (click)="createOrganization()">create</button>
+      <button *ngIf="isUpdate"  [disabled]="organizationForm.invalid" (click)="updateOrganization()">update</button>
+    </div>
+  </div>
+  </form>
+</div></div>
+</div>
+<button *ngIf="isUpdate" class="arrow-button right" (click)="forward()"><span>&gt;</span></button>
+</div>

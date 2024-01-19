@@ -1,0 +1,7 @@
+@import "src/assets/styles/variables";
+@import "src/assets/styles/buttons";
+
+.crm-button-delete{
+  @include colored-button(darken($color-crmtool-lightest-gray,20%),$color-crmtool-white,darken($color-crmtool-lightest-gray,20%));
+  }
+

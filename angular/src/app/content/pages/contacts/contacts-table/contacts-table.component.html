@@ -1,0 +1,68 @@
+<div>
+  <p-table [value]="contacts" [rowHover]="true" [paginator]="true" [rows]="9" [filterDelay]="500"
+           [globalFilterFields]="['vorname', 'nachname', 'organization', 'telefonNr', 'adresse']">
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="vorname" class="ellipsis">
+          First Name
+          <p-sortIcon field="vorname"></p-sortIcon>
+        </th>
+        <th pSortableColumn="nachname" class="ellipsis">
+          Last Name
+          <p-sortIcon field="nachname"></p-sortIcon>
+        </th>
+        <th pSortableColumn="vip" class="ellipsis">
+          VIP
+          <p-sortIcon field="vip"></p-sortIcon>
+        </th>
+        <th pSortableColumn="anrede" class="ellipsis">
+          Salutation
+          <p-sortIcon field="anrede"></p-sortIcon>
+        </th>
+        <th pSortableColumn="akadTitel" class="ellipsis">
+          Academic Title
+          <p-sortIcon field="akadTitel"></p-sortIcon>
+        </th>
+        <th pSortableColumn="organization" class="ellipsis">
+          Organization
+          <p-sortIcon field="organization"></p-sortIcon>
+        </th>
+        <th pSortableColumn="telefonNr" class="ellipsis">
+          Phone Number
+          <p-sortIcon field="telefonNr"></p-sortIcon>
+        </th>
+        <th pSortableColumn="adresse" class="ellipsis">
+          Address
+          <p-sortIcon field="adresse"></p-sortIcon>
+        </th>
+        <th class="ellipsis">
+          <ng-continer>
+            <button class="createButton" (click)="createContact()"><span>+</span></button>
+          </ng-continer>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-contact>
+      <tr (click)="openRowDetail($event, contact)">
+        <td class="ellipsis">{{ contact.vorname }}</td>
+        <td class="ellipsis">{{ contact.nachname }}</td>
+        <td class="ellipsis">{{ contact.vip ? 'Yes' : 'No' }}</td>
+        <td class="ellipsis">{{ contact.anrede }}</td>
+        <td class="ellipsis">{{ contact.akadTitel }}</td>
+        <td class="ellipsis">{{ isOrganizationPresent(contact.organization)}}</td>
+        <td class="ellipsis">{{ contact.telefonNr }}</td>
+        <td class="ellipsis">{{ contact.adresse }}</td>
+        <td>
+          <ng-container>
+            <button class="deleteButton" (click)="deleteContact(contact)"><span>-</span></button>
+          </ng-container>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+<p-confirmDialog
+  [closable]=false
+  [closeOnEscape]=false
+  key="contactConfirmationDialog"
+></p-confirmDialog>

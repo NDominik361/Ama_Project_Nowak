@@ -1,0 +1,7 @@
+.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    max-width: 8rem;
+    padding: 5px;
+  }

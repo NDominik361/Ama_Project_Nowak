@@ -1,0 +1,7 @@
+@import 'src/assets/styles/variables';
+@import 'src/assets/styles/buttons';
+
+.crm-button-cancel{
+  @include colored-button($color-crmtool-white,$primaryTextColor,$primaryColor);
+}
+/*look into 'buttons.scss' - under 'crm-cancel-button'*/

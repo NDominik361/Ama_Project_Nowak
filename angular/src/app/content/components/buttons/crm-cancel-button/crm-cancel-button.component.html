@@ -1,0 +1,12 @@
+<button pButton type="button"
+        [pTooltip]="tooltipText"
+        [tooltipPosition]="tooltipPos"
+        [icon]="iconFa ? '' : icon"
+        [iconPos]="iconPos"
+        [label]="label"
+        [class]="'crm-button-cancel {{styleClass}}'"
+        [disabled]="disabled"
+>
+  <fa-icon *ngIf="iconFa" class="p-button-icon p-button-icon-left" [icon]="iconFa"></fa-icon>
+</button>
+

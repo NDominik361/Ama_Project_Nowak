@@ -1,0 +1,66 @@
+<div style="display: flex; justify-content: center;">
+  <div style="flex: 1; padding: 10px;">
+    <p-table [value]="allContacts" [rowHover]="true" [scrollable]="true" [filterDelay]="500"
+             [globalFilterFields]="['vorname', 'nachname', 'organization', 'telefonNr', 'adresse']">
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="vorname" class="ellipsis">First Name
+            <p-sortIcon field="vorname"></p-sortIcon>
+          </th>
+          <th pSortableColumn="nachname" class="ellipsis">Last Name
+            <p-sortIcon field="nachname"></p-sortIcon>
+          </th>
+          <th pSortableColumn="telefonNr" class="ellipsis">Phone Number
+            <p-sortIcon field="telefonNr"></p-sortIcon>
+          </th>
+          <th class="ellipsis">
+          </th>
+        </tr>
+      </ng-template>
+      <!-- Table Body -->
+      <ng-template pTemplate="body" let-contact>
+        <tr (click)="onRowClickLeft($event, contact)">
+          <td class="ellipsis">{{ contact.vorname }}</td>
+          <td class="ellipsis">{{ contact.nachname }}</td>
+          <td class="ellipsis">{{ contact.telefonNr }}</td>
+          <td>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+  <div style="flex: 1; padding: 10px;">
+    <p-table [value]="invitedContacts" [rowHover]="true" [scrollable]="true" [filterDelay]="500"
+             [globalFilterFields]="['vorname', 'nachname', 'organization', 'telefonNr', 'adresse']">
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="vorname" class="ellipsis">First Name
+            <p-sortIcon field="vorname"></p-sortIcon>
+          </th>
+          <th pSortableColumn="nachname" class="ellipsis">Last Name
+            <p-sortIcon field="nachname"></p-sortIcon>
+          </th>
+          <th pSortableColumn="telefonNr" class="ellipsis">Phone Number
+            <p-sortIcon field="telefonNr"></p-sortIcon>
+          </th>
+          <th class="ellipsis">
+          </th>
+        </tr>
+      </ng-template>
+      <!-- Table Body -->
+      <ng-template pTemplate="body" let-contact>
+        <tr (click)="onRowClickRight($event, contact)">
+          <td class="ellipsis">{{ contact.vorname }}</td>
+          <td class="ellipsis">{{ contact.nachname }}</td>
+          <td class="ellipsis">{{ contact.telefonNr }}</td>
+          <td>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+<div style="display: flex; justify-content: flex-end;">
+  <button class="changes" (click)="saveChanges()">Save Changes</button>
+</div>
